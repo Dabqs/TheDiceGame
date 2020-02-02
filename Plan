@@ -1,0 +1,90 @@
+GUI
+	Guiobject
+		Lenght
+		height
+		x
+		y
+		Render()
+		
+	MainMenuWindow
+		Lenght
+		height
+		x
+		y
+		
+	WIndow
+		frame
+		x
+		y
+		lenght
+		height
+	
+	textblock
+		list<textline>
+		x
+		y
+		lenght
+		height (0)
+	
+		
+	Frame
+		lenght
+		height
+		x
+		y
+		frameChar
+	
+	TextLine
+		x
+		y
+		Lenght
+		height
+		data
+		
+	button
+		x
+		y
+		frame (active, not active?)
+		caption
+		IsActive
+	
+GameSubjects
+
+	Player
+		name
+		score
+		AddToScore()
+		
+	Dice
+		Roll()
+
+
+Main meniu
+	Rėmas?
+	Mygtukai (nereikalingi, nes bus readkey)
+	Title
+
+Player choose menu
+	Rėmas
+	Mygtukai
+	Bus control menu, nes pasirinkimas rodyklėmis ir enter
+	
+Dice menu
+	Rėmas
+	Title
+	NumberOfDice tekstas
+	Controlė (+- didina, mažina ir enter moves toliau, esc grįžta atgal)
+	
+Žaidimas:
+	Pirmiausia sukurti kažkokį control, kad vienas žaidėjas meta kamuoliuką ir score akumuliuojasi
+	tada sukurti, kad ateitų kito žaidėjo eilė
+	tada sukurti roundą (ir jeigu po roundo žaidėjai surinko po tiek pat, tai tie, kurie turi tiek pat, daro papildomą roundą)
+	žaidėjų listas ir score
+	Parodyti po kiekvieno metimo trumpam, kad mesk dar kartą, jeigu turi eilę
+	
+Žaidimo pabaigos menu
+	Rėmas
+	Rodyti laimėtoją
+	rodyti menu, kur gali pasirinkti Replay, goto menu arba quit
+	
+	
