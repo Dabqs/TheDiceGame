@@ -12,15 +12,17 @@ namespace TheDiceGame
     {
         static void Main(string[] args)
         {
-            Window wind = new Window(0, 120, 0, 30,'@');
-            wind.Render();
-
-            Button btn = new Button(5, 10, 5, 5, "Button");
-            btn.Render();
-            Console.SetCursorPosition(0, 0);
-            Console.ReadLine();
-            btn.SetActive();
-            btn.Render();
+            MainMenu mainMenu = new MainMenu(0, 120, 0, 30, '@');
+            mainMenu.Render();
+           // Window wind = new Window(0, 120, 0, 30,'@');
+           // wind.Render();
+           //
+           // Button btn = new Button(5, 10, 5, 5, "Button");
+           // btn.Render();
+           // Console.SetCursorPosition(0, 0);
+           // Console.ReadLine();
+           // btn.SetActive();
+           // btn.Render();
 
             //  Dice dice = new Dice();
             //      Console.WriteLine(dice.Roll());   
