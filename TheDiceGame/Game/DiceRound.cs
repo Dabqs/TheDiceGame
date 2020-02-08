@@ -12,7 +12,7 @@ namespace TheDiceGame.Game
     {
         public int DiceResult { get; set; }
         private Player player;
-        private Dice dice;
+        private Dice dice = new Dice();
         
         public DiceRound(Player player)
         {
