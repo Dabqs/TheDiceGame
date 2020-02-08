@@ -45,6 +45,16 @@
   <ItemGroup>
     <Compile Include="GameSubjects\Dice.cs" />
     <Compile Include="GameSubjects\Player.cs" />
+    <Compile Include="GUI\Button.cs" />
+    <Compile Include="GUI\Frame.cs" />
+    <Compile Include="GUI\GameOverMenu.cs" />
+    <Compile Include="GUI\GuiObject.cs" />
+    <Compile Include="GUI\MainMenu.cs" />
+    <Compile Include="GUI\Menu.cs" />
+    <Compile Include="GUI\PlayerSelectionMenu.cs" />
+    <Compile Include="GUI\TextBlock.cs" />
+    <Compile Include="GUI\TextLine.cs" />
+    <Compile Include="GUI\Window.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
