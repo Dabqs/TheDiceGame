@@ -46,6 +46,7 @@
     <Compile Include="GameSubjects\Dice.cs" />
     <Compile Include="GameSubjects\Player.cs" />
     <Compile Include="GUI\Button.cs" />
+    <Compile Include="GUI\DiceSelectionMenu.cs" />
     <Compile Include="GUI\Frame.cs" />
     <Compile Include="GUI\GameOverMenu.cs" />
     <Compile Include="GUI\GuiObject.cs" />

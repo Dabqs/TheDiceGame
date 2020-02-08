@@ -12,17 +12,53 @@ namespace TheDiceGame
     {
         static void Main(string[] args)
         {
-            MainMenu mainMenu = new MainMenu(0, 120, 0, 30, '@');
+            MainMenu mainMenu = new MainMenu(0, 120, 0, 30, '@',new List<string>()
+            {
+                "The dice game",
+                "Made by Mantas Dapkus",
+                "Vilnius Coding School",
+                "","","",
+                "P - Play     Q-Quit"
+            });
             mainMenu.Render();
-           // Window wind = new Window(0, 120, 0, 30,'@');
-           // wind.Render();
-           //
-           // Button btn = new Button(5, 10, 5, 5, "Button");
-           // btn.Render();
-           // Console.SetCursorPosition(0, 0);
-           // Console.ReadLine();
-           // btn.SetActive();
-           // btn.Render();
+            Console.ReadLine();
+            PlayerSelectionMenu playerSelectionMenu = new PlayerSelectionMenu(0, 120, 0, 30, 'o',new List<string>()
+            {
+                "Select number of players",
+                "(Navigate with arrow keys)",
+                "Press 'Esc' to go back"
+            });
+            playerSelectionMenu.Render();
+            Console.ReadLine();
+            GameOverMenu gameOverMenu  = new GameOverMenu(0, 120, 0, 30, 'o', new List<string>()
+            {
+                "Game over",
+                "{Player} won",
+                "Scoreboard...",
+                "",
+                "R - Replay game     M - Go to menu      Q - Quit"
+            });
+            gameOverMenu.Render();
+
+
+
+            Console.ReadLine();
+            DiceSelectionMenu diceSelectionMenu = new DiceSelectionMenu(0, 120, 0, 30, 'o', new List<string>()
+            {
+                "Choose number of dices (use +/-)",
+                "Press Enter to continue"
+            });
+            diceSelectionMenu.Render();
+
+            // Window wind = new Window(0, 120, 0, 30,'@');
+            // wind.Render();
+            //
+            // Button btn = new Button(5, 10, 5, 5, "Button");
+            // btn.Render();
+            // Console.SetCursorPosition(0, 0);
+            // Console.ReadLine();
+            // btn.SetActive();
+            // btn.Render();
 
             //  Dice dice = new Dice();
             //      Console.WriteLine(dice.Roll());   
