@@ -21,13 +21,18 @@ namespace TheDiceGame.GUI
         }
         public void ReduceDicesCount()
         {
+            if (diceCount > 1)
+            {
             diceCount--;
+            }
         }
         public override void Render()
         {
             base.Render();
-            diceText = new TextLine(X, Width, Y, $"Players will have {diceCount} dice");
+            diceText = new TextLine(X+1, Width, Y + 10, $"Players will have {diceCount} dice");
             diceText.Render();
+            Console.SetCursorPosition(0,0);
+ 
         }
     }
 }

@@ -45,14 +45,19 @@
   <ItemGroup>
     <Compile Include="GameSubjects\Dice.cs" />
     <Compile Include="GameSubjects\Player.cs" />
+    <Compile Include="Game\DiceRound.cs" />
+    <Compile Include="Game\GameController.cs" />
+    <Compile Include="Game\MenuController.cs" />
     <Compile Include="GUI\Button.cs" />
-    <Compile Include="GUI\DiceSelectionMenu.cs" />
+    <Compile Include="GUI\ScoreBoard.cs" />
+    <Compile Include="Menus\DiceSelectionMenu.cs" />
     <Compile Include="GUI\Frame.cs" />
-    <Compile Include="GUI\GameOverMenu.cs" />
+    <Compile Include="Menus\GameOverMenu.cs" />
+    <Compile Include="GUI\GameWindow.cs" />
     <Compile Include="GUI\GuiObject.cs" />
-    <Compile Include="GUI\MainMenu.cs" />
+    <Compile Include="Menus\MainMenu.cs" />
     <Compile Include="GUI\Menu.cs" />
-    <Compile Include="GUI\PlayerSelectionMenu.cs" />
+    <Compile Include="Menus\PlayerSelectionMenu.cs" />
     <Compile Include="GUI\TextBlock.cs" />
     <Compile Include="GUI\TextLine.cs" />
     <Compile Include="GUI\Window.cs" />
@@ -62,8 +67,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Menus\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

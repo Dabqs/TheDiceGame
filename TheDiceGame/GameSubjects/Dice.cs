@@ -9,14 +9,16 @@ namespace TheDiceGame.GameSubjects
     class Dice
     {
         private Random result = new Random();
+        private Player player;
+
+        public Dice(Player player)
+        {
+            player.Score = Roll();
+        }
 
         public int Roll()
         {
             return result.Next(1, 7);
-        }
-        public void Render()
-        {
-
         }
 
     }

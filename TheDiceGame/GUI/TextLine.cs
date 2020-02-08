@@ -8,8 +8,10 @@ namespace TheDiceGame.GUI
 {
     class TextLine: GuiObject
     {
-        public TextLine(int x, int widht, int y, string label) : base(x, widht, y, 1)
+        private bool useLeftTextAllignment;
+        public TextLine(int x, int widht, int y, string label, bool useLeftTextAllignment = false) : base(x, widht, y, 1)
         {
+            this.useLeftTextAllignment = useLeftTextAllignment;
             Label = label;
         }
 
@@ -21,7 +23,7 @@ namespace TheDiceGame.GUI
 
             if (Width > Label.Length)
             {
-                int offset = (Width - Label.Length) / 2;
+                int offset = useLeftTextAllignment? 0 : (Width - Label.Length) / 2;
                 for (int i = 0; i < offset; i++)
                 {
                     Console.Write(' ');
