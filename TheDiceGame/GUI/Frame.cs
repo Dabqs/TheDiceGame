@@ -11,9 +11,16 @@ namespace TheDiceGame.GUI
         private char activeBorderChar = '#';
         private char inActiveBorderChar = '+';
         private char borderChar;
-        public Frame(int x, int widht, int y, int height) : base(x, widht, y, height)
+        public Frame(int x, int widht, int y, int height, char borderChar = char.MinValue) : base(x, widht, y, height)
         {
-            Deactivate();
+            if (borderChar == char.MinValue)
+            {
+                Deactivate();
+            }
+            else
+            {
+                this.borderChar = borderChar;
+            }
         }
         public void SetActive()
         {

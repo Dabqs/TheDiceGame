@@ -12,6 +12,16 @@ namespace TheDiceGame
     {
         static void Main(string[] args)
         {
+            Window wind = new Window(0, 120, 0, 30,'@');
+            wind.Render();
+
+            Button btn = new Button(5, 10, 5, 5, "Button");
+            btn.Render();
+            Console.SetCursorPosition(0, 0);
+            Console.ReadLine();
+            btn.SetActive();
+            btn.Render();
+
             //  Dice dice = new Dice();
             //      Console.WriteLine(dice.Roll());   
             // Player p1 = new Player("Mantas");
@@ -20,14 +30,14 @@ namespace TheDiceGame
             // Console.WriteLine(p1.Score);
             // Console.WriteLine(p1.turnsCount);
 
-            TextBlock txtBlock = new TextBlock(10, 40, 5, 60,
-                new List<string>()
-                {
-                    "This is the game",
-                    "That was created by mister MD.",
-                    "Enjoy yourself"
-                });
-            txtBlock.Render();
+            //TextBlock txtBlock = new TextBlock(10, 40, 5, 60,
+            //    new List<string>()
+            //    {
+            //        "This is the game",
+            //        "That was created by mister MD.",
+            //        "Enjoy yourself"
+            //    });
+            //txtBlock.Render();
 
         }
     }
