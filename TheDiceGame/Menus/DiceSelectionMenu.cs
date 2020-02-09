@@ -9,7 +9,7 @@ namespace TheDiceGame.GUI
     class DiceSelectionMenu : Menu
     {
         private TextLine diceText;
-        private int diceCount = 1;
+        public int DiceCount { get; private set; } = 1;
         public DiceSelectionMenu(int x, int widht, int y, int height, char borderChar, List<string> title) : base(x, widht, y, height, borderChar, title)
         {
 
@@ -17,19 +17,19 @@ namespace TheDiceGame.GUI
 
         public void IncreaseDicesCount()
         {
-            diceCount++;
+            DiceCount++;
         }
         public void ReduceDicesCount()
         {
-            if (diceCount > 1)
+            if (DiceCount > 1)
             {
-            diceCount--;
+            DiceCount--;
             }
         }
         public override void Render()
         {
             base.Render();
-            diceText = new TextLine(X+1, Width, Y + 10, $"Players will have {diceCount} dice");
+            diceText = new TextLine(X+1, Width, Y + 10, $"Players will have {DiceCount} dice");
             diceText.Render();
             Console.SetCursorPosition(0,0);
  

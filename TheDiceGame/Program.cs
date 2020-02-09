@@ -21,19 +21,24 @@ namespace TheDiceGame
              new Player("Pranciskus") };
             //MenuController menuControler = new MenuController();
             //menuControler.ShowMainMenu();
-          GameWindow gWindow = new GameWindow(0, 120, 0, 30, '+');
+          GameWindow gWindow = new GameWindow(0, 120, 0, 30, '+',1);
             gWindow.AddPlayer(new Player("Robertas"));
             gWindow.AddPlayer(new Player("Mantas"));
+            Console.WriteLine(gWindow.DetermineWinner().Name);
 
-            gWindow.RollDice(gWindow.players[0]);
+           // gWindow.RollDice(gWindow.players[0]);
+
+        //    gWindow.Render();
+        //    Console.ReadLine();
+        //    gWindow.RollDice(gWindow.players[1]);
+        //    gWindow.Render();
+        //    Console.ReadLine();
+        //    gWindow.MoveToNextRound();
+        //    gWindow.RollDice(gWindow.players[0]);
             gWindow.Render();
             Console.ReadLine();
-            gWindow.RollDice(gWindow.players[1]);
-            gWindow.Render();
-            Console.ReadLine();
-            gWindow.RollDice(gWindow.players[0]);
-            gWindow.Render();
-            Console.ReadLine();
+
+            Console.WriteLine(gWindow.DetermineWinner().Name);
         }
     }
 }
