@@ -12,6 +12,7 @@ namespace TheDiceGame.Game
         #region InitObjects
         private int currentActiveButton;
         private int targetId;
+        private GameController game;
         private MainMenu mainMenu = new MainMenu(0, 120, 0, 30, '@', new List<string>()
             {
                 "The dice game",
@@ -21,23 +22,14 @@ namespace TheDiceGame.Game
                 "P - Play     Q-Quit"
             });
 
-        private PlayerSelectionMenu playerSelectionMenu = new PlayerSelectionMenu(0, 120, 0, 30, 'o', new List<string>()
+        public PlayerSelectionMenu playerSelectionMenu = new PlayerSelectionMenu(0, 120, 0, 30, 'o', new List<string>()
             {
                 "Select number of players",
                 "(Navigate with arrow keys)",
                 "Press 'Esc' to go back"
             });
 
-        private GameOverMenu gameOverMenu = new GameOverMenu(0, 120, 0, 30, 'o', new List<string>()
-            {
-                "Game over",
-                "{Player} won",
-                "Scoreboard...",
-                "",
-                "R - Replay game     M - Go to menu      Q - Quit"
-            });
-
-        private DiceSelectionMenu diceSelectionMenu = new DiceSelectionMenu(0, 120, 0, 30, 'o', new List<string>()
+        public  DiceSelectionMenu diceSelectionMenu = new DiceSelectionMenu(0, 120, 0, 30, 'o', new List<string>()
             {
                 "Choose number of dices (use +/-)",
                 "Press Enter to continue"
@@ -58,7 +50,6 @@ namespace TheDiceGame.Game
                 {
                     Environment.Exit(0);
                 }
-
             }
         }
         public void ActivatePlayerSelectionMenu()
@@ -75,7 +66,9 @@ namespace TheDiceGame.Game
                         ShowMainMenu();
                         break;
                     case ConsoleKey.Enter:
+                        playerSelectionMenu.SetNumberOfPlayers();
                         ActivateDiceSelectionMenu();
+
                         break;
                     case ConsoleKey.LeftArrow:
                         targetId = currentActiveButton - 1;
@@ -117,7 +110,9 @@ namespace TheDiceGame.Game
                         diceSelectionMenu.ReduceDicesCount();
                         break;
                     case ConsoleKey.Enter:
-                        //launch game
+                        game = new GameController(diceSelectionMenu.DiceCount, this);
+                        game.InitGame();
+                        game.StartGame();
                         break;
                     case ConsoleKey.Escape:
                         ActivatePlayerSelectionMenu();
@@ -128,6 +123,30 @@ namespace TheDiceGame.Game
             } while (true);
 
         }
-
+        public void ActivateGameOverMenu(GameOverMenu gameOverMenu)
+        {
+            do
+            {
+                gameOverMenu.Render();
+            waitForKeyPress: //so that console doesn't render if not needed
+                ConsoleKeyInfo pressedKey = Console.ReadKey(true);
+                switch (pressedKey.Key)
+                {
+                    case ConsoleKey.R:
+                        game = new GameController(diceSelectionMenu.DiceCount, this);
+                        game.InitGame();
+                        game.StartGame();
+                        break;
+                    case ConsoleKey.M:
+                        ShowMainMenu();
+                        break;
+                    case ConsoleKey.Q:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        goto waitForKeyPress;
+                }
+            } while (true);
+        }
     }
 }

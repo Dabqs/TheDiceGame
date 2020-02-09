@@ -49,7 +49,6 @@ namespace TheDiceGame.GUI
                     {
                         Console.Write(' ');
                     }
-
                     Console.Write(borderChar);
                 }
             }

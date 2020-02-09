@@ -10,10 +10,7 @@ namespace TheDiceGame.GUI
     {
         private TextLine diceText;
         public int DiceCount { get; private set; } = 1;
-        public DiceSelectionMenu(int x, int widht, int y, int height, char borderChar, List<string> title) : base(x, widht, y, height, borderChar, title)
-        {
-
-        }
+        public DiceSelectionMenu(int x, int widht, int y, int height, char borderChar, List<string> title) : base(x, widht, y, height, borderChar, title){}
 
         public void IncreaseDicesCount()
         {

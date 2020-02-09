@@ -18,6 +18,5 @@ namespace TheDiceGame.GUI
             base.Render();
             title.Render();
         }
-
     }
 }

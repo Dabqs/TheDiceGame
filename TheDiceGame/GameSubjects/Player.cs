@@ -15,6 +15,6 @@ namespace TheDiceGame.GameSubjects
         {
             Name = name;
         }
-        
+
     }
 }

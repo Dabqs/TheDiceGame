@@ -13,32 +13,8 @@ namespace TheDiceGame
     {
         static void Main(string[] args)
         {
-            List<Player> players = new List<Player>()
-         {
-             new Player("Robertas"),
-             new Player("Mantas"),
-             new Player("Albertas"),
-             new Player("Pranciskus") };
-            //MenuController menuControler = new MenuController();
-            //menuControler.ShowMainMenu();
-          GameWindow gWindow = new GameWindow(0, 120, 0, 30, '+',1);
-            gWindow.AddPlayer(new Player("Robertas"));
-            gWindow.AddPlayer(new Player("Mantas"));
-            Console.WriteLine(gWindow.DetermineWinner().Name);
-
-           // gWindow.RollDice(gWindow.players[0]);
-
-        //    gWindow.Render();
-        //    Console.ReadLine();
-        //    gWindow.RollDice(gWindow.players[1]);
-        //    gWindow.Render();
-        //    Console.ReadLine();
-        //    gWindow.MoveToNextRound();
-        //    gWindow.RollDice(gWindow.players[0]);
-            gWindow.Render();
-            Console.ReadLine();
-
-            Console.WriteLine(gWindow.DetermineWinner().Name);
+            MenuController gameMenu = new MenuController();
+            gameMenu.ShowMainMenu();
         }
     }
 }

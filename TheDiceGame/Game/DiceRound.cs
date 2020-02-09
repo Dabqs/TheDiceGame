@@ -7,7 +7,6 @@ using TheDiceGame.GameSubjects;
 
 namespace TheDiceGame.Game
 {
-
     class DiceRound
     {
         public int DiceResult { get; set; }

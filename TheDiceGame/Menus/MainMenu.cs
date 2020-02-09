@@ -8,10 +8,7 @@ namespace TheDiceGame.GUI
 {
     class MainMenu : Menu
     {
-        public MainMenu(int x, int widht, int y, int height, char borderChar, List<string> title) : base(x, widht, y, height, borderChar,title)
-        {
-        }
-
+        public MainMenu(int x, int widht, int y, int height, char borderChar, List<string> title) : base(x, widht, y, height, borderChar,title){}
         public override void Render()
         {
             base.Render();

@@ -20,7 +20,6 @@ namespace TheDiceGame.GUI
                 infoMessage.Add($"{player.Name} has {player.Score} points.");
             }
             scoreBoard = new TextBlock(X, Width, Y, infoMessage, true);
-
         }
 
         public override void Render()

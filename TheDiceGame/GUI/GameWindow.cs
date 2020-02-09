@@ -11,9 +11,10 @@ namespace TheDiceGame.GUI
     class GameWindow : Window
     {
         private ScoreBoard scoreBoard;
-        private TextLine title;
+        public Player Winner { get; private set; }
+        private TextLine title = new TextLine(40, 50, 10, String.Empty);
         private int roundNumber = 1;
-        public List<Player> players { get; } = new List<Player>();
+        public List<Player> players { get; private set; } = new List<Player>();
         private DiceRound diceRound;
         public GameWindow(int x, int widht, int y, int height, char borderChar, int roundNumber) : base(x, widht, y, height, borderChar)
         {
@@ -36,34 +37,39 @@ namespace TheDiceGame.GUI
         public void MoveToNextRound()
         {
             roundNumber++;
+            scoreBoard = new ScoreBoard(5, 60, 3, 25, players, roundNumber);
         }
         public int GetBestScore()
         {
             return (from player in players
                     select player.Score).Max();
         }
-        public Player DetermineWinner()
+        private void SetWinner(int bestScore)
         {
-            int numberOfPlayersThatSharesBestScore = 0;
-            int bestScore = 0;
-            do
+            Winner = (from player in players
+                      where player.Score == bestScore
+                      select player).FirstOrDefault();
+        }
+        public bool DetermineWinner()
+        {
+            int bestScore = GetBestScore();
+            int numberOfPlayersThatSharesBestScore = players.Where(p => p.Score == bestScore).Count();
+
+            if (numberOfPlayersThatSharesBestScore > 1)
             {
-                bestScore = GetBestScore();
-                numberOfPlayersThatSharesBestScore = players.Where(p => p.Score == bestScore).Count();
-                if (numberOfPlayersThatSharesBestScore > 1)
-                {
-
-                    foreach (Player player in players.Where(p => p.Score == bestScore))
-                    {
-                        RollDice(player);
-                        Render();
-                    }
-                }
-            } while (numberOfPlayersThatSharesBestScore != 1);
-            return (from player in players
-                   where player.Score == bestScore
-                   select player).FirstOrDefault();
-
+                return false;
+            }
+            else
+            {
+                SetWinner(bestScore);
+                return true;
+            }
+        }
+        public void NarrowDownToLeaders()
+        {
+            players = (from player in players
+                    where player.Score == GetBestScore()
+                    select player).ToList();
         }
         public override void Render()
         {

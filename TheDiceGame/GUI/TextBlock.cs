@@ -17,7 +17,6 @@ namespace TheDiceGame.GUI
             }
         }
 
-
         public override void Render()
         {
             foreach (TextLine textLine in textLines)

@@ -14,6 +14,5 @@ namespace TheDiceGame.GameSubjects
         {
             return result.Next(1, 7);
         }
-
     }
 }

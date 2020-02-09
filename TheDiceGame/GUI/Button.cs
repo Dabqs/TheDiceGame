@@ -11,7 +11,6 @@ namespace TheDiceGame.GUI
         private TextLine textLine;
         private Frame frame;
         public int Index { get; }
-
         public bool IsActive { get; private set; } = false;
         public string Label
         {

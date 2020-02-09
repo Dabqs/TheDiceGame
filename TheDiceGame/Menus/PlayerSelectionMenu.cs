@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheDiceGame.GameSubjects;
 
 namespace TheDiceGame.GUI
 {
@@ -13,10 +14,10 @@ namespace TheDiceGame.GUI
         private int buttonY = 4;
         private int buttonWidth = 8;
         private int buttonHeight = 5;
+        public int NumberOfPlayers { get; private set; }
 
         public PlayerSelectionMenu(int x, int widht, int y, int height, char borderChar, List<string> title) : base(x, widht, y, height, borderChar, title)
         {
-
             for (int i = 0; i < 6; i++) //build buttons
             {
                 if (buttonX == 65)
@@ -31,6 +32,7 @@ namespace TheDiceGame.GUI
                 menuButtons.Add(new Button(buttonX, buttonWidth, buttonY, buttonHeight, "P" + (i + 2),i));
             }
             menuButtons[0].SetActive();
+            SetNumberOfPlayers();
         }
         public int GetActiveButtonIndex()
         {
@@ -38,6 +40,11 @@ namespace TheDiceGame.GUI
                     where button.IsActive
                     select button.Index).FirstOrDefault();
         }
+        public void SetNumberOfPlayers()
+        {
+            NumberOfPlayers = GetActiveButtonIndex() +2;
+        }
+
         public override void Render()
         {
             base.Render();
